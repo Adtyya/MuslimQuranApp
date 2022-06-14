@@ -10,3 +10,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+.cards{
+  cursor: pointer;
+  background-image: linear-gradient(to right, #c9d8ff 15%, #110776 85%);
+  background-size: 250%;
+  transition: all 0.5s;
+  background-repeat: no-repeat;
+}
+.cards:hover{
+  background-size: 120%;
+}
