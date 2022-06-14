@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Spin as Hamburger } from "hamburger-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   let [shadow, setShadow] = useState(false);
   let [isOpen, setOpen] = useState(false);
+  const location = useLocation();
 
   const navStyle =
     "p-0 overflow-hidden max-h-[0px] md:max-h-max lg:overflow-visible invisble transition-all duration-300 md:visible";
@@ -39,23 +41,25 @@ const Navbar = () => {
   return (
     <header className="w-screen fixed top-0 z-30">
       <nav
-        className={`w-full max-w-7xl mx-auto lg:my-2 bg-opacity-80 relative ${
-          shadow ? "shadow-xl bg-[#110776]" : "bg-white"
+        className={`w-full max-w-7xl mx-auto lg:my-2 relative ${
+          shadow ? "shadow-xl bg-ungu" : "bg-white"
         } lg:rounded-lg transition-all duration-300 py-1`}
       >
         <div
           className="flex flex-col md:flex-row w-full 
            md:justify-between md:items-center px-3 py-2"
         >
-          <h1
-            className={`font-open text-2xl font-normal ${
-              shadow ? "text-white" : "text-[#110776]"
-            } cursor-pointer transition-all duration-300`}
-          >
-            E - Quran
-          </h1>
+          <Link to={"/"}>
+            <h1
+              className={`font-open text-2xl font-normal ${
+                shadow ? "text-white" : "text-ungu"
+              } cursor-pointer transition-all duration-300`}
+            >
+              E - Quran
+            </h1>
+          </Link>
           <button
-            className={`nav-togler absolute right-0 top-2 md:hidden ${
+            className={`nav-togler absolute right-3 top-1 md:hidden ${
               shadow ? "text-white" : "text-black"
             } transition-all duration-300`}
           >
@@ -67,18 +71,28 @@ const Navbar = () => {
                 shadow ? "text-white" : "text-black text-opacity-70"
               } pt-2`}
             >
-              <li
-                className="block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0"
-                onClick={navTogler}
-              >
-                Home
-              </li>
-              <li
-                className="block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0"
-                onClick={navTogler}
-              >
-                Read
-              </li>
+              <Link to={"/"}>
+                <li
+                  className={`block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 ${
+                    location.pathname === "/" ? "text-ungu font-semibold" : ""
+                  }`}
+                  onClick={navTogler}
+                >
+                  Home
+                </li>
+              </Link>
+              <Link to={"/read"}>
+                <li
+                  className={`block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 ${
+                    location.pathname === "/read"
+                      ? "text-ungu font-semibold"
+                      : ""
+                  }`}
+                  onClick={navTogler}
+                >
+                  Read
+                </li>
+              </Link>
               <li
                 className="block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0"
                 onClick={navTogler}
