@@ -42,7 +42,7 @@ const Navbar = () => {
     <header className="w-screen fixed top-0 z-30">
       <nav
         className={`w-full max-w-7xl mx-auto lg:my-2 relative ${
-          shadow ? "shadow-xl bg-ungu" : "bg-white"
+          shadow ? "shadow-lg shadow-ungu/30 bg-ungu bg-opacity-90" : "bg-white"
         } lg:rounded-lg transition-all duration-300 py-1`}
       >
         <div
@@ -73,8 +73,10 @@ const Navbar = () => {
             >
               <Link to={"/"}>
                 <li
-                  className={`block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 ${
-                    location.pathname === "/" ? "text-ungu font-semibold" : ""
+                  className={`block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 px-2 ${
+                    location.pathname === "/"
+                      ? "text-ungu bg-white rounded-md font-semibold"
+                      : ""
                   }`}
                   onClick={navTogler}
                 >
@@ -83,18 +85,18 @@ const Navbar = () => {
               </Link>
               <Link to={"/read"}>
                 <li
-                  className={`block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 ${
+                  className={`block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 px-2 ${
                     location.pathname === "/read"
-                      ? "text-ungu font-semibold"
+                      ? "text-ungu bg-white rounded-md font-semibold"
                       : ""
-                  }`}
+                  } `}
                   onClick={navTogler}
                 >
                   Read
                 </li>
               </Link>
               <li
-                className="block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0"
+                className="block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 px-2"
                 onClick={navTogler}
               >
                 About

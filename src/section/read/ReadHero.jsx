@@ -51,7 +51,7 @@ const ReadHero = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row space-x-2 md:space-x-0 lg:space-x-2 lg:items-center w-full md:w-1/4 lg:w-[20%]">
+        <div className="flex flex-col lg:flex-row space-x-2 md:space-x-0 lg:space-x-2 lg:items-center w-full md:w-1/4 lg:w-max">
           <p className="text-white font-poppins text-sm">Jam</p>
           <h1 className="font-poppins text-4xl font-normal text-white">
             {timesNow}

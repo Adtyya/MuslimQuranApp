@@ -20,3 +20,8 @@
 .cards:hover{
   background-size: 120%;
 }
+@media only screen and (max-width: 768px){
+  .cards:hover{
+    background-size: 250%;
+  } 
+}
