@@ -1,17 +1,19 @@
 import React from "react";
 import Navbar from "./section/Navbar/Navbar";
-import Hero from "./section/hero/Hero";
-import Read from "./section/read/Read";
 import { Route, Routes } from "react-router-dom";
+import { Home, Lists, Readdetail } from "./pages";
+import Footer from "./section/footer/Footer";
 
 const App = () => {
   return (
     <div className="bg-white h-auto w-auto">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/read" element={<Read />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/read" element={<Lists />} />
+        <Route path="/read/s=:name/no=:id" element={<Readdetail />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

@@ -32,7 +32,10 @@ const ReadHero = () => {
   }, []);
 
   return (
-    <div className="flex justify-center pt-20 w-full max-w-7xl mx-auto">
+    <div
+      className="flex justify-center pt-20 w-full max-w-7xl mx-auto"
+      id="hero-read"
+    >
       <div className="flex flex-col md:flex-row w-full md:items-center justify-center space-x-0 space-y-4 md:space-y-0 md:space-x-4 bg-ungu shadow-lg shadow-ungu/30 bg-opacity-80 lg:rounded-lg h-auto px-3 py-5">
         <div className="flex flex-col lg:flex-row items-start lg:items-center  space-x-2 lg:space-x-2">
           <p className="text-white font-poppins text-sm">Hari</p>

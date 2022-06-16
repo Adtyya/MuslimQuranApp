@@ -11,7 +11,7 @@ const Navbar = () => {
     "p-0 overflow-hidden max-h-[0px] md:max-h-max lg:overflow-visible invisble transition-all duration-300 md:visible";
 
   const shadowNav = () => {
-    if (window.scrollY >= 80) {
+    if (window.scrollY >= 30) {
       setShadow(true);
     } else {
       setShadow(false);
@@ -39,10 +39,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="w-screen fixed top-0 z-30">
+    <header className="w-full fixed top-0 z-30">
       <nav
         className={`w-full max-w-7xl mx-auto lg:my-2 relative ${
-          shadow ? "shadow-lg shadow-ungu/30 bg-ungu bg-opacity-90" : "bg-white"
+          shadow ? "shadow-lg shadow-ungu/30 bg-ungu" : "bg-white"
         } lg:rounded-lg transition-all duration-300 py-1`}
       >
         <div
@@ -73,7 +73,7 @@ const Navbar = () => {
             >
               <Link to={"/"}>
                 <li
-                  className={`block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 px-2 ${
+                  className={`block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 px-1 ${
                     location.pathname === "/"
                       ? "text-ungu bg-white rounded-md font-semibold"
                       : ""
@@ -85,7 +85,7 @@ const Navbar = () => {
               </Link>
               <Link to={"/read"}>
                 <li
-                  className={`block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 px-2 ${
+                  className={`block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 px-1 ${
                     location.pathname === "/read"
                       ? "text-ungu bg-white rounded-md font-semibold"
                       : ""
@@ -95,12 +95,12 @@ const Navbar = () => {
                   Read
                 </li>
               </Link>
-              <li
-                className="block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 px-2"
+              {/* <li
+                className="block md:inline-block md:mx-2 hover:md:scale-125 hover:translate-y-[0.1rem] transition-all duration-300 cursor-pointer py-1 md:py-0 px-1"
                 onClick={navTogler}
               >
                 About
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

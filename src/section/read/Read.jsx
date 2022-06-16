@@ -3,12 +3,13 @@ import ReadHero from "./ReadHero";
 import iconImage from "../../assets/quran.png";
 import { useSelector, useDispatch } from "react-redux";
 import { listsSurah } from "../../actions/listsSurah";
+import { Link } from "react-router-dom";
 
 const Read = () => {
   const dispatch = useDispatch();
 
   const getList = useSelector((state) => state.listsSurah);
-  const { lists } = getList;
+  const { lists, loading, success, msg } = getList;
 
   useEffect(() => {
     dispatch(listsSurah());
@@ -21,23 +22,34 @@ const Read = () => {
         <h1 className="text-black text-opacity-60 font-poppins text-4xl font-semibold">
           List Surat
         </h1>
+        {success ? (
+          ""
+        ) : (
+          <h1 className="text-center text-3xl font-poppins font-semibold text-black text-opacity-60">
+            {msg}
+          </h1>
+        )}
+        {loading && (
+          <h1 className="text-center text-3xl font-poppins font-semibold text-black text-opacity-60">
+            Loading data.....
+          </h1>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-2 w-full mt-7 gap-5">
           {lists &&
             lists.map((el) => (
-              <div
-                className="cards flex flex-row items-center justify-end w-full rounded-md px-2 py-4 shadow-md text-black text-opacity-80"
-                key={el.nomor}
-              >
-                <div className="flex flex-col w-full">
-                  <h3 className="text-lg font-arabic font-semibold">
-                    {el.nama}
-                  </h3>
-                  <h3 className="text-lg font-poppins font-semibold">
-                    {el.nama_latin} - {el.jumlah_ayat} ayat
-                  </h3>
+              <Link to={`/read/s=${el.nama}/no=${el.nomor}`} key={el.nomor}>
+                <div className="cards flex flex-row items-center justify-end w-full rounded-md px-2 py-4 shadow-md text-black text-opacity-80">
+                  <div className="flex flex-col w-full">
+                    <h3 className="text-lg font-arabic font-semibold">
+                      {el.nama}
+                    </h3>
+                    <h3 className="text-lg font-poppins font-semibold">
+                      {el.nama_latin} - {el.jumlah_ayat} ayat
+                    </h3>
+                  </div>
+                  <img src={iconImage} alt="icon" className="w-[15%]" />
                 </div>
-                <img src={iconImage} alt="icon" className="w-[15%]" />
-              </div>
+              </Link>
             ))}
         </div>
       </div>

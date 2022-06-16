@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
-import listsSurahReducer from "./listSurah";
+import { listsSurahReducer, getDetailSurah } from "./listSurah";
 
 const reducers = combineReducers({
   listsSurah: listsSurahReducer,
+  detailSurah: getDetailSurah,
 });
 
 export default reducers;
