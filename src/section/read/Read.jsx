@@ -1,24 +1,19 @@
 import React, { useEffect } from "react";
 import ReadHero from "./ReadHero";
 import iconImage from "../../assets/quran.png";
-import { useSelector, useDispatch } from "react-redux";
-import { listsSurah } from "../../actions/listsSurah";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
 const Read = () => {
-  const dispatch = useDispatch();
-
   const getList = useSelector((state) => state.listsSurah);
   const { lists, loading, success, msg } = getList;
-
   useEffect(() => {
     Aos.init({
       duration: 1000,
     });
-    dispatch(listsSurah());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div>

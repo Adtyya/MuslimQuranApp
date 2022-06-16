@@ -17,16 +17,20 @@ const Navbar = () => {
       setShadow(false);
     }
   };
-
+  const removeStyle = () => {
+    const nav = document.querySelector(".this-mobile");
+    nav.removeAttribute("style");
+    setOpen(false);
+  };
   const navTogler = () => {
-    const addStyle = document.querySelector(".this-mobile");
+    const nav = document.querySelector(".this-mobile");
     const open = "visible";
-    addStyle.classList.toggle(open);
-    if (addStyle.classList.contains(open)) {
+    nav.classList.toggle(open);
+    if (nav.classList.contains(open)) {
       setOpen(true);
-      addStyle.style.maxHeight = addStyle.scrollHeight + "px";
+      nav.style.maxHeight = nav.scrollHeight + "px";
     } else {
-      addStyle.removeAttribute("style");
+      nav.removeAttribute("style");
       setOpen(false);
     }
   };
@@ -54,6 +58,7 @@ const Navbar = () => {
               className={`font-open text-2xl font-normal ${
                 shadow ? "text-white" : "text-ungu"
               } cursor-pointer transition-all duration-300`}
+              onClick={removeStyle}
             >
               E - Quran
             </h1>

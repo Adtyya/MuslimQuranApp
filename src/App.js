@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./section/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import { Home, Lists, Readdetail } from "./pages";
 import Footer from "./section/footer/Footer";
+import { useDispatch } from "react-redux";
+import { listsSurah } from "./actions/listsSurah";
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(listsSurah());
+  }, [dispatch]);
   return (
     <div className="bg-white h-auto w-auto">
       <Navbar />
