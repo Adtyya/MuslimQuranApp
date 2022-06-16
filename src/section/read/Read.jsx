@@ -4,6 +4,8 @@ import iconImage from "../../assets/quran.png";
 import { useSelector, useDispatch } from "react-redux";
 import { listsSurah } from "../../actions/listsSurah";
 import { Link } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Read = () => {
   const dispatch = useDispatch();
@@ -12,6 +14,9 @@ const Read = () => {
   const { lists, loading, success, msg } = getList;
 
   useEffect(() => {
+    Aos.init({
+      duration: 1000,
+    });
     dispatch(listsSurah());
   }, [dispatch]);
 
@@ -38,16 +43,18 @@ const Read = () => {
           {lists &&
             lists.map((el) => (
               <Link to={`/read/s=${el.nama}/no=${el.nomor}`} key={el.nomor}>
-                <div className="cards flex flex-row items-center justify-end w-full rounded-md px-2 py-4 shadow-md text-black text-opacity-80">
-                  <div className="flex flex-col w-full">
-                    <h3 className="text-lg font-arabic font-semibold">
-                      {el.nama}
-                    </h3>
-                    <h3 className="text-lg font-poppins font-semibold">
-                      {el.nama_latin} - {el.jumlah_ayat} ayat
-                    </h3>
+                <div data-aos="fade-up">
+                  <div className="cards flex flex-row items-center justify-end w-full rounded-md px-2 py-4 shadow-md text-black text-opacity-80">
+                    <div className="flex flex-col w-full">
+                      <h3 className="text-lg font-arabic font-semibold">
+                        {el.nama}
+                      </h3>
+                      <h3 className="text-lg font-poppins font-semibold">
+                        {el.nama_latin} - {el.jumlah_ayat} ayat
+                      </h3>
+                    </div>
+                    <img src={iconImage} alt="icon" className="w-[15%]" />
                   </div>
-                  <img src={iconImage} alt="icon" className="w-[15%]" />
                 </div>
               </Link>
             ))}
